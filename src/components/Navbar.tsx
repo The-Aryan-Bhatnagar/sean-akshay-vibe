@@ -1,11 +1,8 @@
 import { Instagram, Facebook, Linkedin, Youtube, Music } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
+  const location = useLocation();
 
   const socialLinks = [
     { icon: Instagram, href: "https://www.instagram.com/seanakshay", label: "Instagram" },
@@ -21,38 +18,46 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Left Navigation */}
           <div className="flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection("home")}
-              className="text-foreground hover:text-primary transition-colors font-medium"
+            <Link
+              to="/"
+              className={`hover:text-primary transition-colors font-medium ${
+                location.pathname === "/" ? "text-primary" : "text-foreground"
+              }`}
             >
               Home
-            </button>
-            <button
-              onClick={() => scrollToSection("tour")}
-              className="text-foreground hover:text-primary transition-colors font-medium"
+            </Link>
+            <Link
+              to="/tour"
+              className={`hover:text-primary transition-colors font-medium ${
+                location.pathname === "/tour" ? "text-primary" : "text-foreground"
+              }`}
             >
               Tour
-            </button>
-            <button
-              onClick={() => scrollToSection("music")}
-              className="text-foreground hover:text-primary transition-colors font-medium"
+            </Link>
+            <Link
+              to="/music"
+              className={`hover:text-primary transition-colors font-medium ${
+                location.pathname === "/music" ? "text-primary" : "text-foreground"
+              }`}
             >
               Music
-            </button>
-            <button
-              onClick={() => scrollToSection("beats")}
-              className="text-foreground hover:text-primary transition-colors font-medium"
+            </Link>
+            <Link
+              to="/beats"
+              className={`hover:text-primary transition-colors font-medium ${
+                location.pathname === "/beats" ? "text-primary" : "text-foreground"
+              }`}
             >
               Beats
-            </button>
+            </Link>
           </div>
 
           {/* Center Logo */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Link to="/" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <h1 className="font-signature text-4xl text-primary text-glow">
               Sean Akshay
             </h1>
-          </div>
+          </Link>
 
           {/* Right Social Icons */}
           <div className="flex items-center gap-3">
