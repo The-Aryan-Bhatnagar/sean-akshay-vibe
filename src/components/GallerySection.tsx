@@ -10,20 +10,21 @@ const GallerySection = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-card">
+    <section className="py-16 px-6 bg-background">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
           {images.map((image, index) => (
             <div
               key={index}
-              className="relative overflow-hidden rounded-lg hover-lift hover-glow group"
+              className="relative overflow-hidden rounded-lg hover-lift hover-glow group shadow-card"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
         </div>
