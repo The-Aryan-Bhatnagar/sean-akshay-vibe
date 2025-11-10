@@ -54,8 +54,8 @@ const Navbar = () => {
 
           {/* Center Logo */}
           <Link to="/" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 className="font-signature text-4xl text-primary text-glow">
-              Sean Akshay
+            <h1 className="text-2xl font-bold text-white tracking-wider hover:text-gray-300 transition-colors">
+              SEAN AKSHAY
             </h1>
           </Link>
 
