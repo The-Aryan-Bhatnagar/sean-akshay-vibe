@@ -1,28 +1,14 @@
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Play, Music2 } from "lucide-react";
 
 const MusicSection = () => {
-  const releases = [
+  const spotifyTracks = [
     {
-      title: "Midnight Vibes",
-      type: "Single",
-      year: "2024",
+      title: "Latest Track 1",
+      embedUrl: "https://open.spotify.com/embed/artist/4aJnzV0YAC8PHc1pTLHcun",
     },
     {
-      title: "Summer Nights EP",
-      type: "EP",
-      year: "2024",
-    },
-    {
-      title: "Dreams & Reality",
-      type: "Album",
-      year: "2023",
-    },
-    {
-      title: "Late Night Sessions",
-      type: "Mixtape",
-      year: "2023",
+      title: "Latest Track 2",
+      embedUrl: "https://open.spotify.com/embed/artist/4aJnzV0YAC8PHc1pTLHcun",
     },
   ];
 
@@ -34,49 +20,45 @@ const MusicSection = () => {
             Latest <span className="text-primary">Music</span>
           </h2>
           <p className="text-xl text-muted-foreground">
-            Stream my latest releases on all platforms
+            Stream my latest releases on Spotify
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {releases.map((release, index) => (
-            <Card
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {spotifyTracks.map((track, index) => (
+            <div
               key={index}
-              className="bg-card border-border hover:border-primary transition-all hover-lift hover-glow group overflow-hidden"
+              className="rounded-lg overflow-hidden animate-fade-in-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Music2 className="w-20 h-20 text-primary/30" />
-                </div>
-                <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Button
-                    size="lg"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-16 h-16 p-0"
-                  >
-                    <Play className="w-6 h-6 ml-1" />
-                  </Button>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-foreground">
-                  {release.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-1">
-                  {release.type} • {release.year}
-                </p>
-              </div>
-            </Card>
+              <iframe
+                src={track.embedUrl}
+                width="100%"
+                height="380"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                className="rounded-lg"
+              ></iframe>
+            </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center">
           <Button
             size="lg"
             variant="outline"
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            asChild
           >
-            View All Releases
+            <a
+              href="https://open.spotify.com/artist/4aJnzV0YAC8PHc1pTLHcun"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View All on Spotify
+            </a>
           </Button>
         </div>
       </div>
