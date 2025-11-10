@@ -1,3 +1,5 @@
+import seanPortrait from "@/assets/sean-portrait.jpg";
+
 const AboutSection = () => {
   return (
     <section className="py-20 px-6 bg-background">
@@ -7,9 +9,11 @@ const AboutSection = () => {
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           <div className="relative overflow-hidden rounded-lg">
-            <div className="w-full h-[500px] bg-muted flex items-center justify-center text-muted-foreground">
-              [Your Photo Here]
-            </div>
+            <img
+              src={seanPortrait}
+              alt="Sean Akshay professional portrait"
+              className="w-full h-[500px] object-cover grayscale"
+            />
           </div>
           <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
             <p>
