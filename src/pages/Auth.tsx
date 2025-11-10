@@ -14,11 +14,10 @@ const authSchema = z.object({
 });
 
 const Auth = () => {
-  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { signIn, signUp, user } = useAuth();
+  const { signIn, user } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -45,21 +44,13 @@ const Auth = () => {
     setLoading(true);
 
     try {
-      const { error } = isLogin 
-        ? await signIn(email, password)
-        : await signUp(email, password);
+      const { error } = await signIn(email, password);
 
       if (error) {
         if (error.message.includes('Invalid login credentials')) {
           toast({
             title: 'Error',
             description: 'Invalid email or password',
-            variant: 'destructive',
-          });
-        } else if (error.message.includes('User already registered')) {
-          toast({
-            title: 'Error',
-            description: 'This email is already registered. Please log in.',
             variant: 'destructive',
           });
         } else {
@@ -72,7 +63,7 @@ const Auth = () => {
       } else {
         toast({
           title: 'Success',
-          description: isLogin ? 'Logged in successfully' : 'Account created successfully',
+          description: 'Logged in successfully',
         });
         navigate('/');
       }
@@ -91,7 +82,7 @@ const Auth = () => {
     <div className="min-h-screen flex items-center justify-center px-4 pt-24">
       <Card className="w-full max-w-md p-8">
         <h1 className="text-3xl font-bold text-center mb-8">
-          {isLogin ? 'Admin Login' : 'Sign Up'}
+          Admin Login
         </h1>
         
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -123,19 +114,9 @@ const Auth = () => {
           </div>
 
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? 'Loading...' : isLogin ? 'Login' : 'Sign Up'}
+            {loading ? 'Loading...' : 'Login'}
           </Button>
         </form>
-
-        <div className="mt-4 text-center">
-          <button
-            onClick={() => setIsLogin(!isLogin)}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            disabled={loading}
-          >
-            {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Login'}
-          </button>
-        </div>
       </Card>
     </div>
   );
