@@ -17,15 +17,19 @@ const MusicSection = () => {
     },
   ];
 
-  // YouTube videos - Add your YouTube video IDs here
+  // YouTube videos
   const youtubeVideos = [
     {
-      title: "Taara - Official Music Video",
-      videoId: "VIDEO_ID", // Replace with actual video ID
+      videoId: "pBkWalmaDbE",
     },
     {
-      title: "Dooba - Official Music Video",
-      videoId: "VIDEO_ID", // Replace with actual video ID
+      videoId: "wKUxI7wh4WQ",
+    },
+    {
+      videoId: "K4K-5ieHig4",
+    },
+    {
+      videoId: "6uugEJ3EhKw",
     },
   ];
 
@@ -107,7 +111,7 @@ const MusicSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {youtubeVideos.map((video, index) => (
               <div
                 key={index}
@@ -124,14 +128,27 @@ const MusicSection = () => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     loading="lazy"
                     className="rounded-lg"
-                    title={video.title}
                   ></iframe>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          {/* YouTube Channel Embed */}
+          <div className="rounded-lg overflow-hidden animate-fade-in-up shadow-lg max-w-2xl mx-auto mb-12">
+            <iframe
+              src="https://www.youtube.com/embed?listType=user_uploads&list=UC-PShwYLTLCcshR9iKBJGyg"
+              width="100%"
+              height="380"
+              frameBorder="0"
+              allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              loading="lazy"
+              className="rounded-lg"
+            ></iframe>
+          </div>
+
+          <div className="text-center">
             <Button
               size="lg"
               variant="outline"
