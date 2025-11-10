@@ -36,12 +36,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center animate-fade-in-up">
-        <h1 className="text-7xl md:text-9xl font-bold mb-8 text-white tracking-tight">
-          SEAN AKSHAY
-        </h1>
-      </div>
+      {/* Content removed - photos only */}
     </section>
   );
 };
