@@ -1,19 +1,19 @@
 import { Button } from "@/components/ui/button";
 
 const MusicSection = () => {
-  // Individual tracks - Add your Spotify track embed URLs here
+  // Individual tracks
   const spotifyTracks = [
     {
-      title: "Taara",
-      embedUrl: "https://open.spotify.com/embed/track/TRACK_ID", // Replace with actual track ID
+      embedUrl: "https://open.spotify.com/embed/track/4Cq2JdlBJ5IfdbPGextwyy",
     },
     {
-      title: "Dooba",
-      embedUrl: "https://open.spotify.com/embed/track/TRACK_ID", // Replace with actual track ID
+      embedUrl: "https://open.spotify.com/embed/track/7c9COxXbs88OZLLQyOWo6N",
     },
     {
-      title: "Teraa Ho Na Sakaa",
-      embedUrl: "https://open.spotify.com/embed/track/TRACK_ID", // Replace with actual track ID
+      embedUrl: "https://open.spotify.com/embed/track/7EEmwFot4kseYyBKCXmVl4",
+    },
+    {
+      embedUrl: "https://open.spotify.com/embed/track/4jBSyQMtAloSLMsDOWCQTV",
     },
   ];
 
@@ -43,7 +43,7 @@ const MusicSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {spotifyTracks.map((track, index) => (
               <div
                 key={index}
@@ -59,13 +59,26 @@ const MusicSection = () => {
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   loading="lazy"
                   className="rounded-lg"
-                  title={track.title}
                 ></iframe>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          {/* Artist Profile Player */}
+          <div className="rounded-lg overflow-hidden animate-fade-in-up shadow-lg max-w-2xl mx-auto mb-12">
+            <iframe
+              src="https://open.spotify.com/embed/artist/4aJnzV0YAC8PHc1pTLHcun"
+              width="100%"
+              height="380"
+              frameBorder="0"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              className="rounded-lg"
+            ></iframe>
+          </div>
+
+          <div className="text-center">
             <Button
               size="lg"
               variant="outline"
