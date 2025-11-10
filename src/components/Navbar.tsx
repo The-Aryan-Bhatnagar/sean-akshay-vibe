@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Youtube, Music, Apple } from "lucide-react";
+import { Instagram, Facebook, Youtube, Music, Apple, Radio } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
@@ -10,6 +10,7 @@ const Navbar = () => {
     { icon: Youtube, href: "https://www.youtube.com/channel/UC-PShwYLTLCcshR9iKBJGyg", label: "YouTube" },
     { icon: Facebook, href: "https://www.facebook.com/SEANAKSHAY01/", label: "Facebook" },
     { icon: Apple, href: "https://music.apple.com/in/artist/sean-akshay/1500987521", label: "Apple Music" },
+    { icon: Radio, href: "https://www.jiosaavn.com/artist/sean-akshay-songs/sDPCtKPn8ZA_", label: "JioSaavn" },
   ];
 
   return (
