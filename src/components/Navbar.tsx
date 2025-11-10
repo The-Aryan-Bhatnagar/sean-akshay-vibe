@@ -1,8 +1,10 @@
-import { Instagram, Facebook, Youtube, Music, Apple, Radio } from "lucide-react";
+import { Instagram, Facebook, Youtube, Music, Apple, Radio, Settings } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const Navbar = () => {
   const location = useLocation();
+  const { isAdmin } = useAuth();
 
   const socialLinks = [
     { icon: Instagram, href: "https://www.instagram.com/seanakshay", label: "Instagram" },
@@ -64,6 +66,15 @@ const Navbar = () => {
 
           {/* Right Social Icons */}
           <div className="flex items-center gap-3">
+            {isAdmin && (
+              <Link
+                to="/admin"
+                className="text-muted-foreground hover:text-primary transition-colors hover-lift"
+                aria-label="Admin Panel"
+              >
+                <Settings className="w-5 h-5" />
+              </Link>
+            )}
             {socialLinks.map((social) => (
               <a
                 key={social.label}

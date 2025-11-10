@@ -1,19 +1,37 @@
-import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import heroPhoto1 from "@/assets/hero-photo-1.jpg";
 import heroPhoto2 from "@/assets/hero-photo-2.jpg";
 import heroPhoto3 from "@/assets/hero-photo-3.jpg";
 
 const HeroSection = () => {
-  const images = [heroPhoto1, heroPhoto2, heroPhoto3];
+  const defaultImages = [heroPhoto1, heroPhoto2, heroPhoto3];
+  const [images, setImages] = useState<string[]>(defaultImages);
   const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    // Fetch hero images from database
+    const fetchImages = async () => {
+      const { data } = await supabase
+        .from('hero_images')
+        .select('image_url')
+        .eq('is_active', true)
+        .order('display_order');
+      
+      if (data && data.length > 0) {
+        setImages(data.map(img => img.image_url));
+      }
+    };
+
+    fetchImages();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
