@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Linkedin, Youtube, Music } from "lucide-react";
+import { Instagram, Facebook, Youtube, Music, Apple } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
@@ -6,10 +6,10 @@ const Navbar = () => {
 
   const socialLinks = [
     { icon: Instagram, href: "https://www.instagram.com/seanakshay", label: "Instagram" },
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Music, href: "#", label: "Spotify" },
+    { icon: Music, href: "https://open.spotify.com/artist/4aJnzV0YAC8PHc1pTLHcun", label: "Spotify" },
+    { icon: Youtube, href: "https://www.youtube.com/channel/UC-PShwYLTLCcshR9iKBJGyg", label: "YouTube" },
+    { icon: Facebook, href: "https://www.facebook.com/SEANAKSHAY01/", label: "Facebook" },
+    { icon: Apple, href: "https://music.apple.com/in/artist/sean-akshay/1500987521", label: "Apple Music" },
   ];
 
   return (
